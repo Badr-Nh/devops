@@ -14,20 +14,7 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
-            steps {
-                withSonarQubeEnv("${SONARQUBE_SERVER}") {
-                    sh """
-                    sonar-scanner \
-                      -Dsonar.projectKey=monapp \
-                      -Dsonar.sources=. \
-                      -Dsonar.host.url=$SONAR_HOST_URL \
-                      -Dsonar.login=${SONARQUBE_TOKEN}
-                    """
-                }
-            }
-        }
-
+     
         
         
     }
